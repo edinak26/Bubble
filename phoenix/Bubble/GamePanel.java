@@ -9,6 +9,8 @@ public class GamePanel extends JPanel implements GamePanelConstants{
     private Graphics2D g;
     private GameBackground background;
 
+    private Player player;
+
     public GamePanel(){
         super();
 
@@ -18,14 +20,18 @@ public class GamePanel extends JPanel implements GamePanelConstants{
 
         image = new BufferedImage(PANEL_WIDTH,PANEL_HEIGHT,BufferedImage.TYPE_INT_RGB);
         g = (Graphics2D) image.getGraphics();
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
         background = new GameBackground(BACKGROUND_COLOR);
+        player =new Player();
     }
 
     public void gameUpdate(){
         background.update();
+        player.update();
     }
     public void gameRender(){
         background.draw(g);
+        player.draw(g);
     }
     public void gameDraw(){
             Graphics g2 = this.getGraphics();
