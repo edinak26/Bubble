@@ -3,22 +3,15 @@ package phoenix.Bubble;
 import javax.swing.*;
 
 public class GameFrame {
+    private JFrame frame;
 
-    GamePanel panel;
-    public GameFrame(){
-        panel = new GamePanel();
-        JFrame startFrame = new JFrame("BubbleShooter2D");
-        startFrame. setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    public GameFrame(GamePanel panel){
+        frame = new JFrame("BubbleShooter2D");
+        frame. setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        startFrame.setContentPane(panel);
-        startFrame.pack();
-        startFrame.setLocationRelativeTo(null);
-        startFrame.setVisible(true);
-
-
-    }
-
-    public void startGame(){
-        panel.start();
+        frame.setContentPane(panel);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
     }
 }

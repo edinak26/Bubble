@@ -1,14 +1,16 @@
 package phoenix.Bubble;
 
 public class Game {
-    private GameFrame gameFrame;
+    private GamePanel panel;
+    private GameFrame frame;
+    private GameThread gameThread;
 
     public Game(){
-        gameFrame = new GameFrame();
+        panel = new GamePanel();
+        frame = new GameFrame(panel);
+        gameThread = new GameThread(panel);
     }
-
-
     public void start(){
-        gameFrame.startGame();
+        gameThread.start();
     }
 }
