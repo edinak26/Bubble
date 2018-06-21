@@ -23,6 +23,7 @@ public class GamePanel extends JPanel implements GamePanelConstants{
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
         background = new GameBackground(BACKGROUND_COLOR);
         player =new Player();
+        addKeyListener(new Listeners());
     }
 
     public void gameUpdate(){
