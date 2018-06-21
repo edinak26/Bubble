@@ -7,6 +7,9 @@ public class Player {
     private int y;
     private int r;
 
+    private double dx;
+    private double dy;
+
     private int speed;
 
     private Color color1;
@@ -24,6 +27,9 @@ public class Player {
         color1 = GamePanelConstants.PLAYER_COLOR;
         speed = 5;
 
+        dx=0;
+        dy=0;
+
         up=false;
         down=false;
         left=false;
@@ -32,17 +38,25 @@ public class Player {
 
     public void update(){
         if(up&&y>r){
-            y -= speed;
+            dy = -speed;
         }
         if(down&&y<GamePanel.PANEL_HEIGHT-r){
-            y+=speed;
+            dy=speed;
         }
         if(left&&x>r){
-            x -= speed;
+            dx = -speed;
         }
         if(right&&x<GamePanel.PANEL_WIDTH-r){
-            x+=speed;
+            dx=speed;
         }
+        if(up&&left||left&&down||down&&right||right&&up){
+            dy=dy * Math.sin(45);
+            dx=dx * Math.cos(45);
+        }
+        y=y+(int)dy;
+        x=x+(int)dx;
+        dx=0;
+        dy=0;
     }
 
     public void draw(Graphics2D g){
