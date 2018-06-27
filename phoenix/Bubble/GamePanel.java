@@ -1,5 +1,8 @@
 package phoenix.Bubble;
 
+import phoenix.Bubble.entities.KeyboardListener;
+import phoenix.Bubble.entities.Player;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -22,8 +25,9 @@ public class GamePanel extends JPanel implements GamePanelConstants{
         g = (Graphics2D) image.getGraphics();
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
         background = new GameBackground(BACKGROUND_COLOR);
-        player =new Player();
-        addKeyListener(new Listeners());
+        KeyboardListener keyboard=new KeyboardListener();
+        player =new Player(keyboard);
+        addKeyListener(keyboard);
     }
 
     public void gameUpdate(){

@@ -8,4 +8,6 @@ public interface GamePanelConstants {
     Color BACKGROUND_COLOR = Color.BLUE;
     int PLAYER_RADIUS = 5;
     Color PLAYER_COLOR = Color.WHITE;
+    int MAX_SPEED=5;
+    double SPEED_SHIFT = 1;
 }
