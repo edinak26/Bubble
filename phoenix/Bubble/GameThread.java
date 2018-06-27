@@ -16,7 +16,7 @@ public class GameThread extends JPanel implements Runnable{
     public void run() {
         while(true){
             gameUpdateRenderDreaw();
-            sleep(15);
+            sleep(20);
         }
     }
     private void sleep(int millis){

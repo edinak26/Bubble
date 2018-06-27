@@ -11,14 +11,12 @@ import phoenix.Bubble.GamePanel;
     private double shiftY;
     private double speedX;
     private double speedY;
-    private int speed;
     private KeyboardListener keyboard;
 
 
             public Player(KeyboardListener keyboard){
 
                         this.keyboard = keyboard;
-                speed = 0;
                 setZeroShift();
             }
 
@@ -27,7 +25,6 @@ import phoenix.Bubble.GamePanel;
                 setMovingSpeed();
                 setMovingVerticalHorizontalShift();
                 setMovingDiagonalShift();
-                System.out.println(speed);
                 move();
                 checkCrossedPanelBorder();
                 setZeroShift();
@@ -39,38 +36,39 @@ import phoenix.Bubble.GamePanel;
                 setMovingLeftSpeed();
                 setMovingRightSpeed();
                 setMovingDeceleration();
+        System.out.println(speedX+" "+speedY);
             }
     private void setMovingUpSpeed(){
-                if(keyboard.isUpPressed()){
+                if(keyboard.isUpPressed()&&speedY>-GamePanel.MAX_SPEED){
                         speedY -=GamePanel.SPEED_SHIFT;
                     }
             }
     private void setMovingDownSpeed(){
-                if(keyboard.isDownPressed()){
+                if(keyboard.isDownPressed()&&speedY<GamePanel.MAX_SPEED){
                         speedY += GamePanel.SPEED_SHIFT;
                     }
             }
     private void setMovingLeftSpeed(){
-                if(keyboard.isLeftPressed()){
+                if(keyboard.isLeftPressed()&&speedX>-GamePanel.MAX_SPEED){
                         speedX -= GamePanel.SPEED_SHIFT;
                     }
             }
     private void setMovingRightSpeed(){
-                if(keyboard.isRightPressed()){
+                if(keyboard.isRightPressed()&&speedX<GamePanel.MAX_SPEED){
                         speedX += GamePanel.SPEED_SHIFT;
                     }
             }
             private void setMovingDeceleration(){
                 if(!keyboard.isUpPressed()&&!keyboard.isDownPressed()&&(int)speedY!=0){
-                    speedY-=(Math.abs(speedY)-GamePanel.SPEED_SHIFT)*speedY/Math.abs(speedY);
+                    speedY=(Math.abs(speedY)-GamePanel.SPEED_SHIFT)*speedY/Math.abs(speedY);
                 }
                 if(!keyboard.isLeftPressed()&&!keyboard.isRightPressed()&&(int)speedX!=0){
-                    speedX-=(Math.abs(speedX)-GamePanel.SPEED_SHIFT)*speedX/Math.abs(speedX);
+                    speedX=(Math.abs(speedX)-GamePanel.SPEED_SHIFT)*speedX/Math.abs(speedX);
                 }
             }
             private void setMovingVerticalHorizontalShift(){
-                shiftX+=speedX;
-                shiftY+=speedY;
+                shiftX+=(int)speedX;
+                shiftY+=(int)speedY;
             }
     private void setMovingDiagonalShift(){
                 boolean isUpLeftDiagonalMoving=keyboard.isUpPressed()&&keyboard.isLeftPressed();
@@ -81,14 +79,6 @@ import phoenix.Bubble.GamePanel;
                 if(isDiagonalMoving){
                         shiftY = shiftY * Math.sin(45);
                         shiftX = shiftX * Math.cos(45);
-                    }
-            }
-    private void setSpeed1() {
-                if(keyboard.isPressedSomething()&&speed<GamePanel.MAX_SPEED){
-                        speed++;
-                    }
-                if(!keyboard.isPressedSomething()&&speed>0){
-                        speed--;
                     }
             }
     private void move(){
