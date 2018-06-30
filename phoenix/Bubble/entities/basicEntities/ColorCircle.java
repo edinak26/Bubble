@@ -1,10 +1,11 @@
-package phoenix.Bubble.entities;
+package phoenix.Bubble.entities.basicEntities;
 
 import phoenix.Bubble.GamePanelConstants;
+import phoenix.Bubble.entities.basicEntities.Circle;
 
-        import java.awt.*;
+import java.awt.*;
 
-        public class ColorCircle extends Circle{
+        public class ColorCircle extends Circle {
     protected Color color;
 
             public ColorCircle() {

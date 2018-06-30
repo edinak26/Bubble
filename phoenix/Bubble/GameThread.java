@@ -19,7 +19,7 @@ public class GameThread extends JPanel implements Runnable{
             sleep(20);
         }
     }
-    private void sleep(int millis){
+    public static void sleep(int millis){
         try {
             Thread.sleep(millis);
         } catch (InterruptedException e) {

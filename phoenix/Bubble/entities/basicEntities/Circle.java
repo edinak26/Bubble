@@ -1,8 +1,9 @@
-package phoenix.Bubble.entities;
+package phoenix.Bubble.entities.basicEntities;
 
     import phoenix.Bubble.GamePanelConstants;
+    import phoenix.Bubble.entities.basicEntities.Point;
 
-        public class Circle extends Point {
+public class Circle extends Point {
     protected int circleRadius;
 
             public Circle(){
@@ -19,16 +20,16 @@ package phoenix.Bubble.entities;
                     circleRadius=radius;
                 }
 
-            protected int getUpperBorderY(){
+                protected int getUpperBorderY(){
                     return y- circleRadius;
                 }
-    protected int getBottomBorderY(){
+                protected int getBottomBorderY(){
                     return y+ circleRadius;
                 }
-    protected int getLeftBorderX(){
+                protected int getLeftBorderX(){
                     return x- circleRadius;
                 }
-    protected int getRightBorderX(){
+                protected int getRightBorderX(){
                     return x+ circleRadius;
                 }
 }

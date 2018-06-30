@@ -1,4 +1,4 @@
-package phoenix.Bubble.entities;
+package phoenix.Bubble.entities.basicEntities;
 
 import phoenix.Bubble.GamePanelConstants;
 
@@ -17,6 +17,12 @@ import phoenix.Bubble.GamePanelConstants;
     Point(Point point){
                 this.x=point.x;
                 this.y=point.y;
+            }
+            public int getX(){
+                return x;
+            }
+            public int getY(){
+                return y;
             }
 
         }
